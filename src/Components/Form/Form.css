@@ -1,0 +1,13 @@
+.imgPreview{
+    
+    position: unset;
+
+}
+
+.imgBox {
+    position: center;
+    display: flex;
+    height:300px;
+    Width:300px;
+    background-color: aqua;
+}
