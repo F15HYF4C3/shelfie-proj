@@ -1,0 +1,3 @@
+SELECT * FROM productdb 
+ORDER BY id DESC 
+LIMIT 1
