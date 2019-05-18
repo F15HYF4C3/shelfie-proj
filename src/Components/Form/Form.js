@@ -12,10 +12,11 @@ class Form extends Component {
         return (
             <div>
                 <div>Form</div>
-                <div>
-                    New Product
-                    Item Price
-                    Image Address
+                <div display="inline" className="inputTitles">
+                   <p>New Product</p> 
+                   <p>Item Price</p>
+                   <p>Image Address</p>                  
+                    
                 </div>
                 <input type="text" className="pnameForm"/>
                 <input type="text" className="priceForm"/>
