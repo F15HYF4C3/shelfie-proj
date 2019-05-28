@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Form.css';
-import axios from 'axios';
-
+// import axios from 'axios';
+// import genericBground from '../../../../shelfie-proj';
 
 class Form extends Component {
     constructor(props){
@@ -10,41 +10,52 @@ class Form extends Component {
         item: {
             pnameForm: "",
             priceForm: 0.00,
-            pimageurlForm: ""
+            pimageurlForm: ""  
         }
-    }
-
+};
+    
+    
+this.addItem=this.addItem.bind(this)
     this.addName = this.addName.bind(this);
     this.addPrice = this.addPrice.bind(this);
     this.addImgUrl = this.addImgUrl.bind(this);
     this.onDeleteHandle = this.onDeleteHandle.bind(this);
-   
+  } 
+
+  
     addName(input){
-        axios.post('http://localhost:3000/api/add', {input})
-        .then((res)=>{
             this.setState({
-            pnameForm: this.state.item.pnameForm
-        })
+            pnameForm: input
+        });
     }
-}
     addPrice(input){
         this.setState({
-            priceForm: this.state.item.priceForm
-        })
+            priceForm: input
+        });
     }
     addImgUrl(input){
         this.setState({
-            pimageurlForm: this.state.item.pimageurlForm
-        })
+            pimageurlForm: input
+        });
     }
-
-    onDeleteHandle(code){
-        axios.delete(`http://localhost:3001/api/pname/delete/${code}`)
-        .then((res)=>{
-          this.setState({
-            item: res.data
-          })
+addItem(input){
+      this.setState({
+          item: {
+            pnameForm: input,
+            priceForm: input,
+            pimageurlForm: input
+          }
         })
+    } 
+
+    onDeleteHandle(event){
+          this.setState({
+            item: {
+                pnameForm: "",
+                priceForm: 0.00,
+                pimageurlForm: "" 
+            }
+          })
       
       }
         render(){
@@ -56,48 +67,28 @@ class Form extends Component {
         //     Axios.get(`http://${imageUrl}`)
     
         // }
-        return (
-            <div>
-                <button className="add" onClick={()=>{
-      this.addItem(e.input)
-    }}>Add</button>
-                {/* onHandleClick(Button){
-    app.post('/api/pname', (req, res, next)=>{
-        const prodsdb = req.app.get('db');
-        const {pname, pprice, pimageurl} = req.body;
-        //can use this function in any other files
-        prodsdb.productdb.insert({
-            pname, 
-            pprice, 
-            pimageurl
-        })
-        .then((pname)=>{
-       res.send(pname)
-        })
-    })
-}  */}
-  
-                <div>Form</div>
-                <div display="inline" className="inputTitles">
-               <input type="text" name="New Product" id="pnameForm"/>
-                <input type="text" name="Item Price" id="priceForm"/>
-                <input type="text" name="Image Address" id="pimageurlForm"/>
-                </div>
-            
-                
-                
-                <div className="imgPreview">
-                <div>New Product Image</div>
-                <div className="imgBox"></div>
-                <button>Add to Inventory</button>
-                   <button>Cancel</button> 
-                </div>
+    return (
+        <div> 
+    <div className="Form">Form
+        <div className="imgBox"></div>
+        <input type="text" onChange={ this.addName }/>
+        <input type="text" onChange={ this.addPrice }/>
+        <input type="text" onChange={ this.addImgUrl }/>
+
+
+    </div>
+        
+                      
+        
+        
+        <button className="add" onClick={this.addItem}>Add to Inventory</button>
+            <button className="cancel" onClick={this.onDeleteHandle}>Cancel</button> 
             </div>
         )
     }
 // {pimageurlForm}
 }
-}
+
 
 
 export default Form
