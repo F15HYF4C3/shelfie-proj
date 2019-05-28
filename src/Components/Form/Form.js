@@ -1,10 +1,52 @@
 import React, {Component} from 'react';
 import './Form.css';
-// import Axios from 'axios';
+import axios from 'axios';
 
 
 class Form extends Component {
+    constructor(props){
+        super(props);
+    this.state = {
+        item: {
+            pnameForm: "",
+            priceForm: 0.00,
+            pimageurlForm: ""
+        }
+    }
+
+    this.addName = this.addName.bind(this);
+    this.addPrice = this.addPrice.bind(this);
+    this.addImgUrl = this.addImgUrl.bind(this);
+    this.onDeleteHandle = this.onDeleteHandle.bind(this);
    
+    addName(input){
+        axios.post('http://localhost:3000/api/add', {input})
+        .then((res)=>{
+            this.setState({
+            pnameForm: this.state.item.pnameForm
+        })
+    }
+}
+    addPrice(input){
+        this.setState({
+            priceForm: this.state.item.priceForm
+        })
+    }
+    addImgUrl(input){
+        this.setState({
+            pimageurlForm: this.state.item.pimageurlForm
+        })
+    }
+
+    onDeleteHandle(code){
+        axios.delete(`http://localhost:3001/api/pname/delete/${code}`)
+        .then((res)=>{
+          this.setState({
+            item: res.data
+          })
+        })
+      
+      }
         render(){
 
      
@@ -16,6 +58,9 @@ class Form extends Component {
         // }
         return (
             <div>
+                <button className="add" onClick={()=>{
+      this.addItem(e.input)
+    }}>Add</button>
                 {/* onHandleClick(Button){
     app.post('/api/pname', (req, res, next)=>{
         const prodsdb = req.app.get('db');
@@ -51,6 +96,7 @@ class Form extends Component {
         )
     }
 // {pimageurlForm}
+}
 }
 
 

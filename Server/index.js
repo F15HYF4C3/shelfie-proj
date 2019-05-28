@@ -52,8 +52,17 @@ app.post('/api/pname', (req, res, next)=>{
         pimageurl
     })
     .then((pname)=>{
-   res.send(pname)
+   res.send(pname) 
     })
 })
-
+app.delete('/api/pname', (req, res)=>{
+    const prodsdb = req.app.get('db');
+    let id;
+    prodsdb.filter((e, i)=>{
+        e.code === req.params.code && id === i;
+        return id;
+    })
+    prodsdb.splice(id, 1)
+    res.send(prodsdb)
+}) 
  
