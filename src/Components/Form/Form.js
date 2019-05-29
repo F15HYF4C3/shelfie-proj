@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import './Form.css';
 // import axios from 'axios';
-// import genericBground from '../../../../shelfie-proj';
+// import genericBground from './Form/Components/src/genericBground.png';
 
 class Form extends Component {
     constructor(props){
         super(props);
     this.state = {
-        item: {
+        items: [],
             pnameForm: "",
             priceForm: 0.00,
-            pimageurlForm: ""  
-        }
+            pimageurlForm: "" 
+        
 };
     
     
@@ -19,45 +19,37 @@ this.addItem=this.addItem.bind(this)
     this.addName = this.addName.bind(this);
     this.addPrice = this.addPrice.bind(this);
     this.addImgUrl = this.addImgUrl.bind(this);
-    this.onDeleteHandle = this.onDeleteHandle.bind(this);
+    // this.onDeleteHandle = this.onDeleteHandle.bind(this);
   } 
 
   
-    addName(input){
+    addName(value){
             this.setState({
-            pnameForm: input
+            pnameForm: value
         });
     }
-    addPrice(input){
+    addPrice(value){
         this.setState({
-            priceForm: input
+            priceForm: value
         });
     }
-    addImgUrl(input){
+    addImgUrl(value){
         this.setState({
-            pimageurlForm: input
+            pimageurlForm: value
         });
     }
-addItem(input){
-      this.setState({
-          item: {
-            pnameForm: input,
-            priceForm: input,
-            pimageurlForm: input
-          }
-        })
+addItem(){
+      const {items, pnameForm, priceForm, pimageurlForm} = this.state;
+
+      let inventoryItems = items.slice();
+      inventoryItems.push({pnameForm, priceForm, pimageurlForm});
+
+      this.setState({items: inventoryItems, pnameForm: '', priceForm: 0.00, pimageurlForm: '' })
     } 
 
-    onDeleteHandle(event){
-          this.setState({
-            item: {
-                pnameForm: "",
-                priceForm: 0.00,
-                pimageurlForm: "" 
-            }
-          })
-      
-      }
+    // onDeleteHandle(){
+    //     this.setState({items: inventoryItems, pnameForm: '', priceForm: 0.00, pimageurlForm: '' })
+    //   }
         render(){
 
      
@@ -70,10 +62,15 @@ addItem(input){
     return (
         <div> 
     <div className="Form">Form
-        <div className="imgBox"></div>
-        <input type="text" onChange={ this.addName }/>
-        <input type="text" onChange={ this.addPrice }/>
-        <input type="text" onChange={ this.addImgUrl }/>
+        <div className="imgBox" >
+        {/* <img src={ this.addImgUrl } /> */}
+        </div>
+        <span>Product Name</span>
+        <input onChange={(e)=> this.addName(e.target.value)} value={this.state.name}/>
+        <span>Product Price</span>
+        <input onChange={(e)=> this.addPrice(e.target.value)} value={this.state.name}/>
+        <span>Image URL</span>
+        <input onChange={(e)=> this.addImgUrl(e.target.value)} value={this.state.name}/>
 
 
     </div>
@@ -81,7 +78,7 @@ addItem(input){
                       
         
         
-        <button className="add" onClick={this.addItem}>Add to Inventory</button>
+        <button className="add" onClick={ () => this.addItem() }>Add to Inventory</button>
             <button className="cancel" onClick={this.onDeleteHandle}>Cancel</button> 
             </div>
         )
