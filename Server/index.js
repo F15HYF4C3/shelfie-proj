@@ -20,9 +20,13 @@ massive(DATABASE_URI).then((dbQuery)=>{
     console.log(`db connected`);
     app.set('db', dbQuery);
 // New Inventory Item Creation
+
     // dbQuery.CREATE_PROD()
     // .then(items =>console.log(items))
     // .catch(err => console.log(err))
+
+// Get Inventory Items
+
     // dbQuery.GET_PNAME()
     // .then(items => console.log(items))
     // .catch(err => console.log(err))
