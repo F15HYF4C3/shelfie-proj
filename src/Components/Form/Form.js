@@ -1,24 +1,25 @@
 import React, {Component} from 'react';
 import './Form.css';
+// import App from 'App.js';
 // import axios from 'axios';
 // import genericBground from './Form/Components/src/genericBground.png';
 
 class Form extends Component {
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
     this.state = {
         items: [],
             pnameForm: "",
-            priceForm: 0.00,
+            priceForm: "0.00",
             pimageurlForm: "" 
         
 };
     
     
-this.addItem=this.addItem.bind(this)
-    this.addName = this.addName.bind(this);
-    this.addPrice = this.addPrice.bind(this);
-    this.addImgUrl = this.addImgUrl.bind(this);
+// this.addItem=this.addItem.bind(this)
+//     this.addName = this.addName.bind(this);
+//     this.addPrice = this.addPrice.bind(this);
+//     this.addImgUrl = this.addImgUrl.bind(this);
     // this.onDeleteHandle = this.onDeleteHandle.bind(this);
   } 
 
@@ -44,7 +45,7 @@ addItem(){
       let inventoryItems = items.slice();
       inventoryItems.push({pnameForm, priceForm, pimageurlForm});
 
-      this.setState({items: inventoryItems, pnameForm: '', priceForm: 0.00, pimageurlForm: '' })
+      this.setState({items: inventoryItems, pnameForm: "", priceForm: "0.00", pimageurlForm: "" })
     } 
 
     // onDeleteHandle(){
@@ -60,30 +61,33 @@ addItem(){
     
         // }
     return (
-        <div> 
-    <div className="Form">Form
-        <div className="imgBox" >
-        {/* <img src={ this.addImgUrl } /> */}
-        </div>
-        <span>Product Name</span>
-        <input onChange={(e)=> this.addName(e.target.value)} value={this.state.name}/>
-        <span>Product Price</span>
-        <input onChange={(e)=> this.addPrice(e.target.value)} value={this.state.name}/>
-        <span>Image URL</span>
-        <input onChange={(e)=> this.addImgUrl(e.target.value)} value={this.state.name}/>
+<div> 
 
-
+    <div className="imgBox" onChange={(e)=> this.addImgUrl(e.target.value)} value={this.state.pimageurlForm}>Image Preview
     </div>
-        
-                      
-        
-        
+    
+        <br/>
+            <div>Product Name</div>
+            <input onChange={(e)=> this.addName(e.target.value)} value={this.state.pnameForm}/>
+        <br/>
+            <div>Product Price</div>
+            <input onChange={(e)=> this.addPrice(e.target.value)} value={this.state.priceForm}/>
+        <br/>
+            <div>Image URL</div>
+            <input onChange={(e)=> this.addImgUrl(e.target.value)} value={this.state.pimageurlForm}/>
+        <br/>
+        <br/>
+
+    <div>
         <button className="add" onClick={ () => this.addItem() }>Add to Inventory</button>
-            <button className="cancel" onClick={this.onDeleteHandle}>Cancel</button> 
-            </div>
+        <button className="cancel" onClick={this.onDeleteHandle}>Cancel</button>
+    </div>
+
+</div> 
+      
         )
     }
-// {pimageurlForm}
+
 }
 
 

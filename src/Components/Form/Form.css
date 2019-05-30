@@ -1,5 +1,14 @@
-* {
-position: relative;
+.Form {
+    width: 350px;
+    height: 520px;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 7px;
+    background-color: #3ad886;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
 }
  .inputTitles {
     position: absolute;
@@ -12,20 +21,17 @@ position: relative;
     background-color: #AB2A19;
 }
 
-.imgPreview{
-    
-    position: absolute;
-    /* top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);  */
-
+.imgPreview{    
+top: 50%;
+left: 50%;
+margin-right: -50%;
+transform: translate(-50%, -50%); 
 }
 
 .imgBox {
     position: center;
     display: flex;
     height:300px;
-    Width:300px;
+    /* Width:300px; */
     background-color: #D34735;
 } 

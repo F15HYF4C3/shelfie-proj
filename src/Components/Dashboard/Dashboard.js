@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Product from '../Product/Product';
-import axios from 'axios';
+// import axios from 'axios';
 
 class Dashboard extends Component {
 
@@ -11,7 +11,7 @@ class Dashboard extends Component {
     //       });
     //     }
     render(){
-        const inventoryItems = this.props
+        // const inventoryItems = this.props
         return (
             <div>
                 Dashboard

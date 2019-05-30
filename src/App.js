@@ -20,9 +20,20 @@ class App extends Component {
       
   return (
     <div className="App">
-      <Dashboard/>
-      <Form/>
-      <Header/>
+      <div className="Header"><Header/></div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <span className="Dashboard"><Dashboard/></span>
+      <span className="Form"><Form/></span>
+      <br/>
+      
+      
+      
+      
+      
     </div>
   );
 }

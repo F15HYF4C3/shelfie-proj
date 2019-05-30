@@ -1,1 +1,3 @@
-SELECT * FROM productdb where id = ${id}
+SELECT * FROM productdb 
+WHERE id > $1;
+-- where id = ${id}
