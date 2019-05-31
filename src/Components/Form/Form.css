@@ -1,5 +1,6 @@
-.Form {
-    width: 350px;
+
+.formBox {
+    width: 300px;
     height: 520px;
     padding: 15px;
     margin: 10px auto;
@@ -21,12 +22,12 @@
     background-color: #AB2A19;
 }
 
-.imgPreview{    
+/* .imgPreview{    
 top: 50%;
 left: 50%;
 margin-right: -50%;
 transform: translate(-50%, -50%); 
-}
+} */
 
 .imgBox {
     position: center;

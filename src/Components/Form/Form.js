@@ -16,10 +16,10 @@ class Form extends Component {
 };
     
     
-// this.addItem=this.addItem.bind(this)
-//     this.addName = this.addName.bind(this);
-//     this.addPrice = this.addPrice.bind(this);
-//     this.addImgUrl = this.addImgUrl.bind(this);
+    this.addItem=this.addItem.bind(this)
+    this.addName = this.addName.bind(this);
+    this.addPrice = this.addPrice.bind(this);
+    this.addImgUrl = this.addImgUrl.bind(this);
     // this.onDeleteHandle = this.onDeleteHandle.bind(this);
   } 
 
@@ -61,7 +61,7 @@ addItem(){
     
         // }
     return (
-<div> 
+<div className="formBox"> 
 
     <div className="imgBox" onChange={(e)=> this.addImgUrl(e.target.value)} value={this.state.pimageurlForm}>Image Preview
     </div>

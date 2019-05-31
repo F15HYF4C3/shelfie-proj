@@ -9,11 +9,23 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      inventoryList: [{
-        name: '',
+      inventoryList: [
+        {
+          name: 'Jordan',
+        price: 20.00,
+        imgUrl: 'priceless.com'
+        },
+        {
+          name: 'Duck',
+        price: 10.00,
+        imgUrl: 'priceless.com'
+        },
+        {
+        name: 'Tyra',
         price: 0.00,
-        imgUrl: ''
-      }]
+        imgUrl: 'priceless.com'
+      }
+    ]
     }
   }
     render(){
@@ -26,8 +38,12 @@ class App extends Component {
       <br/>
       <br/>
       <br/>
-      <span className="Dashboard"><Dashboard/></span>
-      <span className="Form"><Form/></span>
+        <span className="Dashboard"><Dashboard display='inline'
+        inventoryList={this.state.inventoryList}/>
+        </span>
+
+        <span className="Form"><Form display='inline'/>
+        </span>
       <br/>
       
       

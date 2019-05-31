@@ -5,7 +5,7 @@ class Product extends Component {
         
         return (
             <div>
-                Product
+                
             </div>
         )
     }
